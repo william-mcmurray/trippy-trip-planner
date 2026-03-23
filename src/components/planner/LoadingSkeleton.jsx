@@ -4,7 +4,7 @@ export default function LoadingSkeleton({ lines = 5 }) {
       {Array.from({ length: lines }, (_, i) => (
         <div
           key={i}
-          className="h-4 bg-terracotta-100 rounded"
+          className="h-4 bg-sage-100 rounded"
           style={{ width: `${Math.max(40, 100 - i * 12)}%` }}
         />
       ))}

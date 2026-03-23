@@ -11,9 +11,9 @@ export default function StepIndicator({ currentStep, totalSteps }) {
             key={step}
             className={`w-2.5 h-2.5 rounded-full transition-colors ${
               isActive
-                ? 'bg-terracotta-500 scale-125'
+                ? 'bg-sage-500 scale-125'
                 : isCompleted
-                ? 'bg-terracotta-300'
+                ? 'bg-sage-300'
                 : 'bg-warm-200'
             }`}
           />

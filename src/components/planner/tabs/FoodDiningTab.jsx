@@ -14,7 +14,7 @@ export default function FoodDiningTab() {
 
   if (agent.status === 'running') {
     return (
-      <div className="bg-white rounded-xl border border-warm-100 p-6">
+      <div className="bg-warm-100 rounded-xl border border-warm-100 p-6">
         <LoadingSkeleton lines={8} />
       </div>
     );
@@ -23,14 +23,14 @@ export default function FoodDiningTab() {
   if (agent.status === 'failed') {
     return (
       <div className="text-center py-8">
-        <p className="text-warm-600 mb-4">{agent.error || 'Food & dining guide could not be generated.'}</p>
+        <p className="text-warm-600 mb-4">{agent.error || "The food guide got lost in transit — want to try again?"}</p>
         <RetryButton onClick={() => retryAgent('foodDining', state, dispatch)} label="Retry Food & Dining" />
       </div>
     );
   }
 
   return (
-    <div className="bg-white rounded-xl border border-warm-100 p-6">
+    <div className="bg-warm-100 rounded-xl border border-warm-100 p-6">
       <MarkdownRenderer text={agent.output} />
     </div>
   );

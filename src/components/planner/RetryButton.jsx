@@ -2,7 +2,7 @@ export default function RetryButton({ onClick, label = 'Retry', small = false })
   return (
     <button
       onClick={onClick}
-      className={`inline-flex items-center gap-1.5 font-medium rounded-lg border border-amber-300 bg-amber-50 text-amber-700 hover:bg-amber-100 transition-colors cursor-pointer ${
+      className={`inline-flex items-center gap-1.5 font-medium rounded-lg border border-[#C97B84] bg-[#F5E0E3] text-[#C97B84] hover:bg-[#C97B84]/20 transition-colors cursor-pointer ${
         small ? 'text-xs px-2 py-1' : 'text-sm px-4 py-2'
       }`}
     >

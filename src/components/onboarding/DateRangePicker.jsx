@@ -30,7 +30,7 @@ export default function DateRangePicker({ startDate, endDate, onChange, errors }
             value={startDate || ''}
             min={today}
             onChange={handleStartChange}
-            className="w-full border border-warm-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-terracotta-300 focus:border-terracotta-300"
+            className="w-full border border-warm-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sage-300 focus:border-sage-300"
           />
         </div>
         <div>
@@ -42,7 +42,7 @@ export default function DateRangePicker({ startDate, endDate, onChange, errors }
             value={endDate || ''}
             min={startDate || today}
             onChange={handleEndChange}
-            className="w-full border border-warm-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-terracotta-300 focus:border-terracotta-300"
+            className="w-full border border-warm-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sage-300 focus:border-sage-300"
           />
         </div>
       </div>
@@ -54,11 +54,11 @@ export default function DateRangePicker({ startDate, endDate, onChange, errors }
       )}
 
       {errors?.dates && (
-        <p className="text-sm text-red-600">{errors.dates}</p>
+        <p className="text-sm text-[#C97B84]">{errors.dates}</p>
       )}
       {tripDays > MAX_TRIP_DAYS && (
-        <p className="text-sm text-red-600">
-          Trippy supports trips of up to {MAX_TRIP_DAYS} days. Please adjust your dates.
+        <p className="text-sm text-[#C97B84]">
+          Alpaca supports trips of up to {MAX_TRIP_DAYS} days. Please adjust your dates.
         </p>
       )}
     </div>

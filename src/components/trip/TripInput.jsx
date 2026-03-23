@@ -32,19 +32,19 @@ export default function TripInput() {
     <div className="min-h-screen bg-warm-50 flex items-start justify-center pt-12 px-4">
       <div className="w-full max-w-lg">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-terracotta-500 mb-2">
+          <h1 className="text-3xl font-bold text-sage-500 mb-2">
             Where to, {userProfile?.name || 'traveller'}?
           </h1>
           <p className="text-warm-500">Tell us about your destination and we'll do the rest.</p>
         </div>
 
-        <div className="bg-white rounded-xl shadow-sm border border-warm-100 p-6">
+        <div className="bg-warm-100 rounded-xl shadow-sm border border-warm-100 p-6">
           {/* Read-only trip dates */}
-          <div className="bg-terracotta-50 rounded-lg px-4 py-3 mb-6">
-            <p className="text-sm text-terracotta-700">
+          <div className="bg-sage-50 rounded-lg px-4 py-3 mb-6">
+            <p className="text-sm text-sage-700">
               <span className="font-medium">Your dates:</span>{' '}
               {formatDate(userProfile?.startDate, TRIP_INPUT_DATE_OPTIONS)} – {formatDate(userProfile?.endDate, TRIP_INPUT_DATE_OPTIONS)}{' '}
-              <span className="text-terracotta-500">({userProfile?.tripDays} days)</span>
+              <span className="text-sage-500">({userProfile?.tripDays} days)</span>
             </p>
           </div>
 
@@ -62,12 +62,12 @@ export default function TripInput() {
                 }}
                 maxLength={300}
                 placeholder="e.g. Tokyo, Japan — focused on traditional culture and street food"
-                className="w-full border border-warm-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-terracotta-300 focus:border-terracotta-300"
+                className="w-full border border-warm-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-sage-300 focus:border-sage-300"
               />
               <p className="text-xs text-warm-400 mt-1">
                 Be descriptive — more than just a city name helps us plan better.
               </p>
-              {error && <p className="text-sm text-red-600 mt-1">{error}</p>}
+              {error && <p className="text-sm text-[#C97B84] mt-1">{error}</p>}
             </div>
 
             <div>
@@ -80,13 +80,13 @@ export default function TripInput() {
                 maxLength={1000}
                 rows={3}
                 placeholder="Any specific places, experiences, or activities you don't want to miss?"
-                className="w-full border border-warm-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-terracotta-300 focus:border-terracotta-300 resize-none"
+                className="w-full border border-warm-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-sage-300 focus:border-sage-300 resize-none"
               />
             </div>
 
             <button
               type="submit"
-              className="w-full bg-terracotta-500 text-white py-2.5 rounded-lg font-medium hover:bg-terracotta-600 transition-colors cursor-pointer"
+              className="w-full bg-sage-500 text-white py-2.5 rounded-lg font-medium hover:bg-sage-600 transition-colors cursor-pointer"
             >
               Plan My Trip
             </button>

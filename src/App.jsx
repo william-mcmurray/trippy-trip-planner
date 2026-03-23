@@ -21,8 +21,8 @@ function AppContent() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-warm-50">
         <div className="text-center">
-          <div className="w-8 h-8 rounded-full border-2 border-terracotta-500 border-t-transparent animate-spin mx-auto mb-3" />
-          <p className="text-warm-500 text-sm">Connecting...</p>
+          <div className="w-8 h-8 rounded-full border-2 border-sage-500 border-t-transparent animate-spin mx-auto mb-3" />
+          <p className="text-warm-500 text-sm">Waking up the llamas...</p>
         </div>
       </div>
     );

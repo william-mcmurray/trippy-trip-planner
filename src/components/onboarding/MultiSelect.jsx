@@ -28,8 +28,8 @@ export default function MultiSelect({ options, selected, onChange, columns = 2 }
             onClick={() => toggle(option)}
             className={`px-3 py-2 rounded-lg text-sm font-medium border transition-colors cursor-pointer text-left ${
               isSelected
-                ? 'bg-terracotta-500 text-white border-terracotta-500'
-                : 'bg-white text-warm-700 border-warm-200 hover:border-terracotta-300'
+                ? 'bg-sage-500 text-white border-sage-500'
+                : 'bg-warm-50 text-warm-700 border-warm-200 hover:border-sage-300'
             }`}
           >
             {option}

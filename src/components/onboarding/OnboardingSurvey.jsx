@@ -113,17 +113,17 @@ export default function OnboardingSurvey() {
     <div className="min-h-screen bg-warm-50 flex items-start justify-center pt-12 px-4">
       <div className="w-full max-w-lg">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-terracotta-500 mb-2">Welcome to Trippy</h1>
-          <p className="text-warm-500">Let's get to know you so we can plan the perfect trip.</p>
+          <h1 className="text-3xl font-bold text-sage-500 mb-2">Hey there! Welcome to Alpaca 🦙</h1>
+          <p className="text-warm-500">Tell us a bit about yourself — we'll handle the rest.</p>
         </div>
 
-        <div className="bg-white rounded-xl shadow-sm border border-warm-100 p-6">
+        <div className="bg-warm-100 rounded-xl shadow-sm border border-warm-100 p-6">
           <StepIndicator currentStep={step} totalSteps={TOTAL_STEPS} />
 
-          {/* Step 1: Name + Age */}
+          {/* Step 1: What should we call you? */}
           {step === 1 && (
             <div className="space-y-4">
-              <h2 className="text-lg font-semibold text-warm-800">About You</h2>
+              <h2 className="text-lg font-semibold text-warm-800">What should we call you?</h2>
               <div>
                 <label className="block text-sm font-medium text-warm-700 mb-1">Your Name</label>
                 <input
@@ -132,9 +132,9 @@ export default function OnboardingSurvey() {
                   onChange={(e) => update('name', e.target.value)}
                   maxLength={100}
                   placeholder="What should we call you?"
-                  className="w-full border border-warm-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-terracotta-300 focus:border-terracotta-300"
+                  className="w-full border border-warm-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sage-300 focus:border-sage-300"
                 />
-                {errors.name && <p className="text-sm text-red-600 mt-1">{errors.name}</p>}
+                {errors.name && <p className="text-sm text-[#C97B84] mt-1">{errors.name}</p>}
               </div>
               <div>
                 <label className="block text-sm font-medium text-warm-700 mb-1">Age Range</label>
@@ -146,23 +146,23 @@ export default function OnboardingSurvey() {
                       onClick={() => update('ageRange', range)}
                       className={`px-3 py-2 rounded-lg text-sm font-medium border transition-colors cursor-pointer ${
                         form.ageRange === range
-                          ? 'bg-terracotta-500 text-white border-terracotta-500'
-                          : 'bg-white text-warm-700 border-warm-200 hover:border-terracotta-300'
+                          ? 'bg-sage-500 text-white border-sage-500'
+                          : 'bg-warm-100 text-warm-700 border-warm-200 hover:border-sage-300'
                       }`}
                     >
                       {range}
                     </button>
                   ))}
                 </div>
-                {errors.ageRange && <p className="text-sm text-red-600 mt-1">{errors.ageRange}</p>}
+                {errors.ageRange && <p className="text-sm text-[#C97B84] mt-1">{errors.ageRange}</p>}
               </div>
             </div>
           )}
 
-          {/* Step 2: Travel Style + Pace */}
+          {/* Step 2: What's your travel vibe? */}
           {step === 2 && (
             <div className="space-y-4">
-              <h2 className="text-lg font-semibold text-warm-800">Travel Style</h2>
+              <h2 className="text-lg font-semibold text-warm-800">What's your travel vibe?</h2>
               <div>
                 <label className="block text-sm font-medium text-warm-700 mb-2">How do you like to travel?</label>
                 <div className="space-y-2">
@@ -173,15 +173,15 @@ export default function OnboardingSurvey() {
                       onClick={() => update('travelStyle', style)}
                       className={`w-full text-left px-4 py-3 rounded-lg text-sm font-medium border transition-colors cursor-pointer ${
                         form.travelStyle === style
-                          ? 'bg-terracotta-500 text-white border-terracotta-500'
-                          : 'bg-white text-warm-700 border-warm-200 hover:border-terracotta-300'
+                          ? 'bg-sage-500 text-white border-sage-500'
+                          : 'bg-warm-100 text-warm-700 border-warm-200 hover:border-sage-300'
                       }`}
                     >
                       {style}
                     </button>
                   ))}
                 </div>
-                {errors.travelStyle && <p className="text-sm text-red-600 mt-1">{errors.travelStyle}</p>}
+                {errors.travelStyle && <p className="text-sm text-[#C97B84] mt-1">{errors.travelStyle}</p>}
               </div>
               <div>
                 <label className="block text-sm font-medium text-warm-700 mb-2">What pace do you prefer?</label>
@@ -193,30 +193,30 @@ export default function OnboardingSurvey() {
                       onClick={() => update('pace', pace)}
                       className={`w-full text-left px-4 py-3 rounded-lg text-sm font-medium border transition-colors cursor-pointer ${
                         form.pace === pace
-                          ? 'bg-terracotta-500 text-white border-terracotta-500'
-                          : 'bg-white text-warm-700 border-warm-200 hover:border-terracotta-300'
+                          ? 'bg-sage-500 text-white border-sage-500'
+                          : 'bg-warm-100 text-warm-700 border-warm-200 hover:border-sage-300'
                       }`}
                     >
                       {pace}
                     </button>
                   ))}
                 </div>
-                {errors.pace && <p className="text-sm text-red-600 mt-1">{errors.pace}</p>}
+                {errors.pace && <p className="text-sm text-[#C97B84] mt-1">{errors.pace}</p>}
               </div>
             </div>
           )}
 
-          {/* Step 3: Interests */}
+          {/* Step 3: What are you into? */}
           {step === 3 && (
             <div className="space-y-4">
-              <h2 className="text-lg font-semibold text-warm-800">Your Interests</h2>
+              <h2 className="text-lg font-semibold text-warm-800">What are you into?</h2>
               <p className="text-sm text-warm-500">Select all that excite you.</p>
               <MultiSelect
                 options={INTERESTS}
                 selected={form.interests}
                 onChange={(val) => update('interests', val)}
               />
-              {errors.interests && <p className="text-sm text-red-600 mt-1">{errors.interests}</p>}
+              {errors.interests && <p className="text-sm text-[#C97B84] mt-1">{errors.interests}</p>}
             </div>
           )}
 
@@ -233,10 +233,10 @@ export default function OnboardingSurvey() {
             </div>
           )}
 
-          {/* Step 5: Dates */}
+          {/* Step 5: When's the trip? */}
           {step === 5 && (
             <div className="space-y-4">
-              <h2 className="text-lg font-semibold text-warm-800">Trip Dates</h2>
+              <h2 className="text-lg font-semibold text-warm-800">When's the trip?</h2>
               <DateRangePicker
                 startDate={form.startDate}
                 endDate={form.endDate}
@@ -250,11 +250,11 @@ export default function OnboardingSurvey() {
             </div>
           )}
 
-          {/* Step 6: Budget + Group */}
+          {/* Step 6: What's the budget looking like? */}
           {step === 6 && (
             <div className="space-y-6">
               <div className="space-y-4">
-                <h2 className="text-lg font-semibold text-warm-800">Budget</h2>
+                <h2 className="text-lg font-semibold text-warm-800">What's the budget looking like?</h2>
                 <p className="text-sm text-warm-500">Select your daily budget per person.</p>
                 <div className="space-y-2">
                   {BUDGET_TIERS.map((tier, idx) => (
@@ -264,8 +264,8 @@ export default function OnboardingSurvey() {
                       onClick={() => update('budgetTier', idx)}
                       className={`w-full text-left px-4 py-3 rounded-lg text-sm font-medium border transition-colors cursor-pointer flex justify-between items-center ${
                         form.budgetTier === idx
-                          ? 'bg-terracotta-500 text-white border-terracotta-500'
-                          : 'bg-white text-warm-700 border-warm-200 hover:border-terracotta-300'
+                          ? 'bg-sage-500 text-white border-sage-500'
+                          : 'bg-warm-100 text-warm-700 border-warm-200 hover:border-sage-300'
                       }`}
                     >
                       <span>{tier.label}</span>
@@ -273,13 +273,13 @@ export default function OnboardingSurvey() {
                     </button>
                   ))}
                 </div>
-                {errors.budget && <p className="text-sm text-red-600 mt-1">{errors.budget}</p>}
+                {errors.budget && <p className="text-sm text-[#C97B84] mt-1">{errors.budget}</p>}
 
                 {selectedBudget && tripDays > 0 && (
-                  <div className="bg-terracotta-50 rounded-lg px-4 py-3">
-                    <p className="text-sm text-terracotta-700">
+                  <div className="bg-sage-50 rounded-lg px-4 py-3">
+                    <p className="text-sm text-sage-700">
                       Estimated total: <span className="font-semibold">${(selectedBudget.midpoint * tripDays).toLocaleString()}</span>
-                      <span className="text-terracotta-500 ml-1">
+                      <span className="text-sage-500 ml-1">
                         (${selectedBudget.midpoint} × {tripDays} days)
                       </span>
                     </p>
@@ -295,8 +295,8 @@ export default function OnboardingSurvey() {
                     onClick={() => update('groupType', 'solo')}
                     className={`flex-1 px-4 py-3 rounded-lg text-sm font-medium border transition-colors cursor-pointer ${
                       form.groupType === 'solo'
-                        ? 'bg-terracotta-500 text-white border-terracotta-500'
-                        : 'bg-white text-warm-700 border-warm-200 hover:border-terracotta-300'
+                        ? 'bg-sage-500 text-white border-sage-500'
+                        : 'bg-warm-100 text-warm-700 border-warm-200 hover:border-sage-300'
                     }`}
                   >
                     Solo
@@ -306,8 +306,8 @@ export default function OnboardingSurvey() {
                     onClick={() => update('groupType', 'group')}
                     className={`flex-1 px-4 py-3 rounded-lg text-sm font-medium border transition-colors cursor-pointer ${
                       form.groupType === 'group'
-                        ? 'bg-terracotta-500 text-white border-terracotta-500'
-                        : 'bg-white text-warm-700 border-warm-200 hover:border-terracotta-300'
+                        ? 'bg-sage-500 text-white border-sage-500'
+                        : 'bg-warm-100 text-warm-700 border-warm-200 hover:border-sage-300'
                     }`}
                   >
                     Group
@@ -322,9 +322,9 @@ export default function OnboardingSurvey() {
                       max={20}
                       value={form.groupSize}
                       onChange={(e) => update('groupSize', parseInt(e.target.value) || 2)}
-                      className="w-24 border border-warm-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-terracotta-300 focus:border-terracotta-300"
+                      className="w-24 border border-warm-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sage-300 focus:border-sage-300"
                     />
-                    {errors.groupSize && <p className="text-sm text-red-600 mt-1">{errors.groupSize}</p>}
+                    {errors.groupSize && <p className="text-sm text-[#C97B84] mt-1">{errors.groupSize}</p>}
                   </div>
                 )}
               </div>
@@ -347,7 +347,7 @@ export default function OnboardingSurvey() {
             <button
               type="button"
               onClick={handleNext}
-              className="bg-terracotta-500 text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-terracotta-600 transition-colors cursor-pointer"
+              className="bg-sage-500 text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-sage-600 transition-colors cursor-pointer"
             >
               {step === TOTAL_STEPS ? 'Start Planning' : 'Next'}
             </button>

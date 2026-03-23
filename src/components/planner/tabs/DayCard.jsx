@@ -13,13 +13,13 @@ export default function DayCard({ day, defaultExpanded = false }) {
   );
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-warm-100 overflow-hidden">
+    <div className="bg-warm-100 rounded-xl shadow-sm border border-warm-100 overflow-hidden">
       <button
         onClick={() => setExpanded(!expanded)}
         className="w-full flex items-center justify-between px-5 py-4 hover:bg-warm-50 transition-colors cursor-pointer"
       >
         <div className="flex items-center gap-3 text-left">
-          <span className="text-sm font-bold text-terracotta-500 bg-terracotta-50 rounded-lg px-2.5 py-1">
+          <span className="text-sm font-bold text-sage-500 bg-sage-50 rounded-lg px-2.5 py-1">
             Day {day.day}
           </span>
           <div>
