@@ -2,6 +2,13 @@
   command = "npm run build"
   publish = "dist"
 
+[dev]
+  command = "npx vite --port 5173"
+  targetPort = 5173
+  port = 8888
+  autoLaunch = false
+  framework = "#custom"
+
 [functions]
   directory = "netlify/functions"
   node_bundler = "esbuild"
@@ -26,5 +33,5 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains"
-    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self' data:; font-src 'self';"
+    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; connect-src 'self'; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com;"
     Permissions-Policy = "geolocation=(), microphone=(), camera=()"

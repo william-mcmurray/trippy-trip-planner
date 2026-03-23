@@ -3,9 +3,9 @@
   "configurations": [
     {
       "name": "alpaca-dev",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
-      "port": 8888
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["vite"],
+      "port": 5173
     }
   ]
 }
