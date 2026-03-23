@@ -1,12 +1,9 @@
 import { useState } from 'react';
 import { useApp } from '../../state/AppContext';
 import { sanitiseUserInput } from '../../utils/sanitise';
+import { formatDate } from '../../utils/dateUtils';
 
-function formatDate(dateStr) {
-  if (!dateStr) return '';
-  const date = new Date(dateStr + 'T00:00:00');
-  return date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
-}
+const TRIP_INPUT_DATE_OPTIONS = { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' };
 
 export default function TripInput() {
   const { state, dispatch } = useApp();
@@ -46,7 +43,7 @@ export default function TripInput() {
           <div className="bg-terracotta-50 rounded-lg px-4 py-3 mb-6">
             <p className="text-sm text-terracotta-700">
               <span className="font-medium">Your dates:</span>{' '}
-              {formatDate(userProfile?.startDate)} – {formatDate(userProfile?.endDate)}{' '}
+              {formatDate(userProfile?.startDate, TRIP_INPUT_DATE_OPTIONS)} – {formatDate(userProfile?.endDate, TRIP_INPUT_DATE_OPTIONS)}{' '}
               <span className="text-terracotta-500">({userProfile?.tripDays} days)</span>
             </p>
           </div>

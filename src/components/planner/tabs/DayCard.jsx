@@ -1,11 +1,8 @@
 import { useState } from 'react';
 import ActivityRow from './ActivityRow';
+import { formatDate } from '../../../utils/dateUtils';
 
-function formatDate(dateStr) {
-  if (!dateStr) return '';
-  const date = new Date(dateStr + 'T00:00:00');
-  return date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
-}
+const DAY_CARD_DATE_OPTIONS = { weekday: 'short', month: 'short', day: 'numeric' };
 
 export default function DayCard({ day, defaultExpanded = false }) {
   const [expanded, setExpanded] = useState(defaultExpanded);
@@ -26,7 +23,7 @@ export default function DayCard({ day, defaultExpanded = false }) {
             Day {day.day}
           </span>
           <div>
-            <span className="text-sm text-warm-500">{formatDate(day.date)}</span>
+            <span className="text-sm text-warm-500">{formatDate(day.date, DAY_CARD_DATE_OPTIONS)}</span>
             {day.theme && (
               <span className="text-sm text-warm-700 font-medium ml-2">— {day.theme}</span>
             )}
