@@ -1,16 +1,7 @@
-const CATEGORY_STYLES = {
-  culture:   { bg: 'bg-blue-100', text: 'text-blue-700', border: 'border-l-blue-500' },
-  food:      { bg: 'bg-orange-100', text: 'text-orange-700', border: 'border-l-orange-500' },
-  nature:    { bg: 'bg-green-100', text: 'text-green-700', border: 'border-l-green-500' },
-  nightlife: { bg: 'bg-purple-100', text: 'text-purple-700', border: 'border-l-purple-500' },
-  adventure: { bg: 'bg-red-100', text: 'text-red-700', border: 'border-l-red-500' },
-  wellness:  { bg: 'bg-teal-100', text: 'text-teal-700', border: 'border-l-teal-500' },
-  shopping:  { bg: 'bg-yellow-100', text: 'text-yellow-700', border: 'border-l-yellow-500' },
-  transport: { bg: 'bg-gray-100', text: 'text-gray-700', border: 'border-l-gray-400' },
-};
+import { CATEGORY_STYLES } from '../../../utils/constants';
 
 export default function ActivityRow({ activity }) {
-  const style = CATEGORY_STYLES[activity.category] || CATEGORY_STYLES.transport;
+  const style = CATEGORY_STYLES[activity.category] || CATEGORY_STYLES.other;
 
   return (
     <div className={`border-l-4 ${style.border} pl-4 py-3`}>
