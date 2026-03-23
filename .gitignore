@@ -29,3 +29,5 @@ Thumbs.db
 # Logs
 *.log
 npm-debug.log*
+.claude/worktrees/agent-a0926958/
+.claude/worktrees/agent-a170c922/
