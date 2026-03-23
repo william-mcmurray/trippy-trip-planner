@@ -14,7 +14,7 @@ export default function BudgetTab() {
 
   if (agent.status === 'running') {
     return (
-      <div className="bg-white rounded-xl border border-warm-100 p-6">
+      <div className="bg-warm-100 rounded-xl border border-warm-100 p-6">
         <LoadingSkeleton lines={8} />
       </div>
     );
@@ -23,14 +23,14 @@ export default function BudgetTab() {
   if (agent.status === 'failed') {
     return (
       <div className="text-center py-8">
-        <p className="text-warm-600 mb-4">{agent.error || 'Budget planner could not be generated.'}</p>
+        <p className="text-warm-600 mb-4">{agent.error || "Budget breakdown hit a snag — let's try that again?"}</p>
         <RetryButton onClick={() => retryAgent('budget', state, dispatch)} label="Retry Budget" />
       </div>
     );
   }
 
   return (
-    <div className="bg-white rounded-xl border border-warm-100 p-6">
+    <div className="bg-warm-100 rounded-xl border border-warm-100 p-6">
       <MarkdownRenderer text={agent.output} />
     </div>
   );

@@ -29,8 +29,8 @@ export default function ActivityRow({ activity }) {
       )}
 
       {activity.insider_tip && (
-        <div className="mt-2 bg-terracotta-50 rounded-lg px-3 py-2">
-          <p className="text-xs text-terracotta-700">
+        <div className="mt-2 bg-[#FBF3D5] rounded-lg px-3 py-2">
+          <p className="text-xs text-[#8B7A2B]">
             <span className="font-semibold">Insider tip:</span> {activity.insider_tip}
           </p>
         </div>

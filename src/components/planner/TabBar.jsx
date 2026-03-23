@@ -9,13 +9,13 @@ const TABS = [
 
 function TabStatusIcon({ status }) {
   if (status === 'running') {
-    return <div className="w-2 h-2 rounded-full border border-terracotta-400 border-t-transparent animate-spin" />;
+    return <div className="w-2 h-2 rounded-full border border-sage-400 border-t-transparent animate-spin" />;
   }
   if (status === 'complete') {
-    return <div className="w-2 h-2 rounded-full bg-green-400" />;
+    return <div className="w-2 h-2 rounded-full bg-sage-400" />;
   }
   if (status === 'failed') {
-    return <div className="w-2 h-2 rounded-full bg-amber-400" />;
+    return <div className="w-2 h-2 rounded-full bg-[#C97B84]" />;
   }
   return null;
 }
@@ -35,7 +35,7 @@ export default function TabBar() {
             onClick={() => dispatch({ type: 'SET_ACTIVE_TAB', payload: tab.key })}
             className={`flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium whitespace-nowrap border-b-2 transition-colors cursor-pointer ${
               isActive
-                ? 'border-terracotta-500 text-terracotta-600'
+                ? 'border-sage-500 text-sage-600'
                 : 'border-transparent text-warm-500 hover:text-warm-700 hover:border-warm-300'
             }`}
           >

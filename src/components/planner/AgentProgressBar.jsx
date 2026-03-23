@@ -1,6 +1,8 @@
+import { useState, useEffect } from 'react';
 import { useApp } from '../../state/AppContext';
 import { AGENT_KEYS, AGENT_LABELS } from '../../utils/constants';
 import { retryAgent } from '../../agents/pipeline';
+import { getLoadingMessage } from '../../utils/loadingMessages';
 import RetryButton from './RetryButton';
 
 function StatusIcon({ status }) {
@@ -9,12 +11,12 @@ function StatusIcon({ status }) {
   }
   if (status === 'running') {
     return (
-      <div className="w-5 h-5 rounded-full border-2 border-terracotta-500 border-t-transparent animate-spin" />
+      <div className="w-5 h-5 rounded-full border-2 border-sage-500 border-t-transparent animate-spin" />
     );
   }
   if (status === 'complete') {
     return (
-      <div className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center">
+      <div className="w-5 h-5 rounded-full bg-sage-500 flex items-center justify-center">
         <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
         </svg>
@@ -23,7 +25,7 @@ function StatusIcon({ status }) {
   }
   if (status === 'failed') {
     return (
-      <div className="w-5 h-5 rounded-full bg-amber-400 flex items-center justify-center">
+      <div className="w-5 h-5 rounded-full bg-[#C97B84] flex items-center justify-center">
         <span className="text-white text-xs font-bold">!</span>
       </div>
     );
@@ -34,20 +36,28 @@ function StatusIcon({ status }) {
 function ConnectorLine({ status }) {
   return (
     <div className={`flex-1 h-0.5 mx-1 ${
-      status === 'complete' ? 'bg-green-300' : 'bg-warm-200'
+      status === 'complete' ? 'bg-sage-300' : 'bg-warm-200'
     }`} />
   );
 }
 
 export default function AgentProgressBar() {
   const { state, dispatch } = useApp();
+  const [tick, setTick] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTick((t) => t + 1);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   function handleRetry(agentKey) {
     retryAgent(agentKey, state, dispatch);
   }
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-warm-100 p-4 mb-4">
+    <div className="bg-warm-100 rounded-xl shadow-sm border border-warm-100 p-4 mb-4">
       {/* Icons + connector lines row */}
       <div className="flex items-center mb-2">
         {AGENT_KEYS.map((key, idx) => {
@@ -72,6 +82,11 @@ export default function AgentProgressBar() {
               <span className="text-xs text-warm-600 font-medium text-center leading-tight">
                 {AGENT_LABELS[key]}
               </span>
+              {agent.status === 'running' && (
+                <span className="text-xs text-warm-500 italic text-center leading-tight">
+                  {getLoadingMessage(key, tick)}
+                </span>
+              )}
               {agent.status === 'failed' && (
                 <RetryButton onClick={() => handleRetry(key)} small label="Retry" />
               )}
