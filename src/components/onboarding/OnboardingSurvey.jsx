@@ -8,21 +8,13 @@ import {
   INTERESTS,
   DIETARY_REQUIREMENTS,
   BUDGET_TIERS,
-  MAX_TRIP_DAYS,
-  MIN_TRIP_DAYS,
 } from '../../utils/constants';
+import { getTripDays, validateDateRange } from '../../utils/dateUtils';
 import StepIndicator from './StepIndicator';
 import MultiSelect from './MultiSelect';
 import DateRangePicker from './DateRangePicker';
 
 const TOTAL_STEPS = 6;
-
-function getTripDays(startDate, endDate) {
-  if (!startDate || !endDate) return 0;
-  const start = new Date(startDate);
-  const end = new Date(endDate);
-  return Math.ceil((end - start) / (1000 * 60 * 60 * 24)) + 1;
-}
 
 export default function OnboardingSurvey() {
   const { state, dispatch } = useApp();
@@ -63,16 +55,8 @@ export default function OnboardingSurvey() {
       if (form.interests.length === 0) newErrors.interests = 'Please select at least one interest';
     }
     if (step === 5) {
-      const today = new Date().toISOString().split('T')[0];
-      if (!form.startDate) newErrors.dates = 'Please select a start date';
-      else if (!form.endDate) newErrors.dates = 'Please select an end date';
-      else if (form.startDate < today) newErrors.dates = 'Start date must not be in the past';
-      else if (form.endDate <= form.startDate) newErrors.dates = 'End date must be after start date';
-      else {
-        const days = getTripDays(form.startDate, form.endDate);
-        if (days < MIN_TRIP_DAYS) newErrors.dates = 'Trip must be at least 1 day';
-        if (days > MAX_TRIP_DAYS) newErrors.dates = `Trippy supports trips of up to ${MAX_TRIP_DAYS} days. Please adjust your dates.`;
-      }
+      const result = validateDateRange(form.startDate, form.endDate);
+      if (!result.valid) newErrors.dates = result.error;
     }
     if (step === 6) {
       if (form.budgetTier === null) newErrors.budget = 'Please select a budget tier';

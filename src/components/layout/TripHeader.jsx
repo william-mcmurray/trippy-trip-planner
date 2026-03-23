@@ -1,17 +1,5 @@
 import { useApp } from '../../state/AppContext';
-
-function formatDate(dateStr) {
-  if (!dateStr) return '';
-  const date = new Date(dateStr + 'T00:00:00');
-  return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-}
-
-function getTripDays(startDate, endDate) {
-  if (!startDate || !endDate) return 0;
-  const start = new Date(startDate);
-  const end = new Date(endDate);
-  return Math.ceil((end - start) / (1000 * 60 * 60 * 24)) + 1;
-}
+import { formatDate, getTripDays } from '../../utils/dateUtils';
 
 export default function TripHeader() {
   const { state } = useApp();
